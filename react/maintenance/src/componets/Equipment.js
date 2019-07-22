@@ -228,12 +228,12 @@ function Equipment(props){
                                     <tr>
                                         <th scope="col">Maintenance Task</th>
                                         <th scope="col">Who did the Work</th>
-                                        <th scope="col">Last Service Date</th>
+                                        <th scope="col">Date of Service</th>
                                         <th scope="col">Next Service Date</th>
                                         <th scope="col">Notes</th>
                                     </tr>
                                 </thead>
-                                {/* same as prperties for each tr */}
+                                {/* same as prperties for each tr */} 
                                 {RenderServices(services)}
                             </Table>
                             <Button className="btn btn-secondary">Add Service</Button>
