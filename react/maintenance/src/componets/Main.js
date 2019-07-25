@@ -54,6 +54,7 @@ class Main extends Component{
                     servicesErrMess={this.props.services.errMess}
                     postEquipment={this.props.postEquipment}
                 />
+                
             );
             }
         return(

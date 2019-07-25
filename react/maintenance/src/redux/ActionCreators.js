@@ -73,9 +73,9 @@ export const equipmentFailed = (errmess) => ({
     payload: errmess
 });
 
-export const addEquipment = (dishes) => ({
+export const addEquipment = (equipment) => ({
     type: ActionTypes.ADD_EQUIPMENT,
-    payload: dishes
+    payload: equipment
 });
 
 export const postEquipment = (id,locationId,wellHouse,name,installDate,horsePower,oilType,serial,greaseType) => (dispatch) => {

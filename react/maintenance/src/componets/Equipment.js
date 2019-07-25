@@ -1,11 +1,29 @@
 import React, {Component} from 'react';
 import { Button, Card, CardBody, CardHeader, Table, 
     Modal, ModalHeader, ModalBody, ModalFooter, Row, Col, Label  } from 'reactstrap';
-import { Control, Errors, Form, actions } from 'react-redux-form';
+import { Control, Errors, LocalForm, actions } from 'react-redux-form';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import Service from './Services';
+import AddService from './AddService';
+import { postEquipment } from '../redux/ActionCreators';
 
 import {  AccordionItem } from 'react-light-accordion';
 import 'react-light-accordion/demo/css/index.css';
 //import {Loading} from './LoadingComponent'; 
+
+const mapStateToProps = state => {
+    return {
+
+    }}
+
+  const mapDispatchToProps = dispatch => ({
+    postEquipment: (id,locationId,wellHouse,name,installDate,horsePower,
+        oilType,serial,greaseType) => dispatch(postEquipment(id,
+            locationId,wellHouse,name,installDate,horsePower,
+            oilType,serial,greaseType)),
+  });
+
 
 class RenderPropertiesList extends Component{
     constructor(props) {
@@ -51,8 +69,11 @@ class RenderPropertiesList extends Component{
         });
     }
       handleSubmit(values){
-        console.log('Current State is: ' + JSON.stringify(values));
-        this.props.postEquipment(this.props.id,this.props.locationId,this.props.wellHouse,this.state.name, values.installDate, values.horsePower, values.oilType, values.serial, values.greaseType);
+        this.toggle();
+        this.props.postEquipment(this.props.id,this.props.locationId,
+            this.props.wellHouse,this.state.name, values.installDate, 
+            values.horsePower, values.oilType, values.serial, values.greaseType);
+        alert("form submitting");
       }
     render(){
         if(this.state.name!=null){
@@ -64,10 +85,11 @@ class RenderPropertiesList extends Component{
                             <Button type="button" size="sm" onClick={this.toggle}>
                                 <i className="fa fa-edit "></i> 
                             </Button>
+                            {/* Modal to edit equip details */}
                             <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                                 <ModalHeader toggle={this.toggle}>Edit {this.state.name}'s properties</ModalHeader>
                                 <ModalBody>
-                                    <Form model="editProps" onSubmit={(values) => this.handleSubmit(values)}>
+                                    <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
                                         <Row className="form-group">
                                             <Label htmlFor="installDate" md={2}>Install Date</Label>
                                             <Col md={10}>
@@ -163,10 +185,10 @@ class RenderPropertiesList extends Component{
                                                 />
                                             </Col>
                                         </Row>
-                                    </Form>
+                                    </LocalForm>
                                 </ModalBody>
                                 <ModalFooter>
-                                    <Button color="primary" type="submit" onClick={this.toggle}>Save</Button>{' '}
+                                    <Button color="primary" type="submit" onClick={(values) => this.handleSubmit(values)}>Save</Button>{' '}
                                     <Button color="secondary" onClick={this.toggle}>Cancel</Button>
                                 </ModalFooter>
                             </Modal>
@@ -187,31 +209,6 @@ class RenderPropertiesList extends Component{
     }
 }
 
-function RenderServices(services){
-    if(services!=null){
-        const Services = services.map((service)=>{
-            return(
-                <React.Fragment key={service.id}>
-                <tr>
-                    <th><Button>{service.serviceName}</Button></th>
-                    <td>{service.personName}</td>
-                    <td>{service.previousDate}</td>
-                    <td>{service.date}</td>
-                    <td>{service.notes}</td>
-                </tr>
-                </React.Fragment>
-            );}
-        );
-        return(
-            <React.Fragment>
-                <tbody>
-                    {Services}
-                </tbody>
-            </React.Fragment>);
-        }
-    else
-        return(<React.Fragment></React.Fragment>);
-}
 function Equipment(props){
     const listofEquip = props.equipment.map((equip) => {
         const services = props.services.filter(
@@ -234,9 +231,11 @@ function Equipment(props){
                                     </tr>
                                 </thead>
                                 {/* same as prperties for each tr */} 
-                                {RenderServices(services)}
+                                <Service equipName={equip.name} services={services} equipId={equip.id} locationId={equip.locationId}/>
                             </Table>
-                            <Button className="btn btn-secondary">Add Service</Button>
+                            
+                            <AddService equipName={equip.name} equipId={equip.id} locationId={equip.locationId} serviceName={''}/>
+
                         </CardBody>
                     </Card>
                 </AccordionItem>
@@ -257,4 +256,4 @@ function Equipment(props){
         return(<div></div>);
 } 
 
-export default Equipment;
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Equipment));
