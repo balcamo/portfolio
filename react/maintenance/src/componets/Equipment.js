@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Button, Card, CardBody, CardHeader, Table, 
     Modal, ModalHeader, ModalBody, ModalFooter, Row, Col, Label  } from 'reactstrap';
-import { Control, Errors, LocalForm, actions } from 'react-redux-form';
+import { Control, Errors, LocalForm } from 'react-redux-form';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Service from './Services';
