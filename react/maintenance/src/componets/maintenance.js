@@ -100,6 +100,8 @@ const Maintenance = (props) =>{
                     <TabPane tabId="1">
                         <Accordion atomic={false}>
                             <EquipmentRender 
+                                locationId={props.locations.locationId}
+                                locationName={props.locations.name}
                                 equip={props.equipment.filter(
                                     (equip) => String(equip.wellHouse) === String(true))} 
                                 isLoading={props.equipmentisLoading} 
@@ -117,6 +119,8 @@ const Maintenance = (props) =>{
                     <TabPane tabId="2">
                         <Accordion atomic={false}>
                             <EquipmentRender 
+                                locationId={props.locations.locationId}
+                                locationName={props.locations.name}
                                 equip={props.equipment.filter(
                                     (equip) => String(equip.wellHouse) === String(false))} 
                                 isLoading={props.equipmentisLoading} 

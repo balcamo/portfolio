@@ -6,6 +6,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Service from './Services';
 import AddService from './AddService';
+import AddEquipment from './AddEquipment';
 import { postEquipment } from '../redux/ActionCreators';
 
 import {  AccordionItem } from 'react-light-accordion';
@@ -93,8 +94,9 @@ class RenderPropertiesList extends Component{
                                         <Row className="form-group">
                                             <Label htmlFor="installDate" md={2}>Install Date</Label>
                                             <Col md={10}>
-                                                <Control.text model=".installDate" id="installDate" name="installDate"
-                                                    placeholder={this.state.installDate}
+                                                <Control.input model=".installDate" id="installDate" name="installDate"
+                                                    type="datetime-local"
+                                                    value={this.state.installDate}
                                                     className="form-control"
                                                     validators={{
                                                     }}
@@ -234,7 +236,7 @@ function Equipment(props){
                                 <Service equipName={equip.name} services={services} equipId={equip.id} locationId={equip.locationId}/>
                             </Table>
                             
-                            <AddService equipName={equip.name} equipId={equip.id} locationId={equip.locationId} serviceName={''}/>
+                            <AddService equipName={equip.name} equipId={equip.id} locationId={equip.locationId} serviceName={''} />
 
                         </CardBody>
                     </Card>
@@ -249,7 +251,7 @@ function Equipment(props){
                     {listofEquip}
                 </div>
                 {/* add equipment */}
-                <button className="btn btn-secondary">Add Equipment</button>
+                <AddEquipment locationId={props.locationId} locationName={props.locationName}/>
             </div>
         );
     else

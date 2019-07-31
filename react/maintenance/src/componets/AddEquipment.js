@@ -5,25 +5,24 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter,
      Row, Col, Label   } from 'reactstrap';
 
 
-class AddService extends Component{
+class AddEquipment extends Component{
     constructor(props) {
         super(props);
         this.state = {
-            equipName:props.equipName,
-            equipmentId:props.equipId,
-            locationId:props.locationId,
-            serviceName:props.serviceName,
-            serviceDate:'',
-            nextDate:'',
-            personName:'',
-            notes:'',
+            name:'',
+            installDate:'',
+            horsePower:'',
+            oilType:'',
+            serial:'',
+            greaseType:'',
             modal: false,
             touched: {
-                serviceName: false,
-                serviceDate: false,
-                nextDate: false,
-                personName: false,
-                notes: false
+                installDate: false,
+                installDate: false,
+                horsePower: false,
+                oilType: false,
+                serial: false,
+                greaseType: false
             }
         };
     
@@ -58,48 +57,25 @@ class AddService extends Component{
     render(){
         return(
             <div>
-                <Button type="button" onClick={this.toggle} className="btn btn-secondary">Add Service</Button>
+                <Button type="button" onClick={this.toggle} className="btn btn-secondary">Add Equipment</Button>
                 {/* Modal to edit equip details */}
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                    <ModalHeader toggle={this.toggle}>Add a Service for {this.state.equipName}</ModalHeader>
+                    <ModalHeader toggle={this.toggle}>Add new peice of equipment for {this.props.locationName}</ModalHeader>
                     <ModalBody>
-                        <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
+                    <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
                             <Row className="form-group">
-                                <Label htmlFor="serviceName" md={2}>Service Name</Label>
+                                <Label htmlFor="installDate" md={2}>Install Date</Label>
                                 <Col md={10}>
-                                    <Control.select model=".serviceName" id="serviceName" name="serviceName"
-                                        placeholder={this.state.serviceName}
-                                        className="form-control"
-                                        validators={{
-                                        }}
-                                        >
-                                        <option> --- Select One --- </option>
-                                        <option>Oil Change</option>
-                                        <option>Grease </option>
-                                    </Control.select>
-                                    <Errors
-                                        className="text-danger"
-                                        model=".serviceName"
-                                        show="touched"
-                                        messages={{
-                                            
-                                        }}
-                                    />
-                                </Col>
-                            </Row>
-                            <Row className="form-group">
-                                <Label htmlFor="serviceDate" md={2}>Service Date</Label>
-                                <Col md={10}>
-                                    <Control.text model=".serviceDate" id="serviceDate" name="serviceDate"
+                                    <Control.input model=".installDate" id="installDate" name="installDate"
                                         type="datetime-local"
-                                        value={this.state.serviceDate}
+                                        value={this.state.installDate}
                                         className="form-control"
                                         validators={{
                                         }}
                                         />
                                     <Errors
                                         className="text-danger"
-                                        model=".serviceDate"
+                                        model=".installDate"
                                         show="touched"
                                         messages={{
                                             
@@ -108,18 +84,17 @@ class AddService extends Component{
                                 </Col>
                             </Row>
                             <Row className="form-group">
-                                <Label htmlFor="nextDate" md={2}>next date for this Service</Label>
+                                <Label htmlFor="horsePower" md={2}>Horse Power</Label>
                                 <Col md={10}>
-                                    <Control.text model=".nextDate" id="nextDate" name="nextDate"
-                                        type="datetime-local"
-                                        value={this.state.nextDate}
+                                    <Control.text model=".horsePower" id="horsePower" name="horsePower"
+                                        placeholder={this.state.horsePower}
                                         className="form-control"
                                         validators={{
                                         }}
                                         />
                                     <Errors
                                         className="text-danger"
-                                        model=".nextDate"
+                                        model=".horsePower"
                                         show="touched"
                                         messages={{
                                             
@@ -128,17 +103,17 @@ class AddService extends Component{
                                 </Col>
                             </Row>
                             <Row className="form-group">
-                                <Label htmlFor="personName" md={2}>Person Who performed Service</Label>
+                                <Label htmlFor="oilType" md={2}>Oil Type</Label>
                                 <Col md={10}>
-                                    <Control.text model=".personName" id="personName" name="serial"
-                                        placeholder={this.state.personName}
+                                    <Control.text model=".oilType" id="oilType" name="oilType"
+                                        placeholder={this.state.oilType}
                                         className="form-control"
                                         validators={{
                                         }}
                                         />
                                     <Errors
                                         className="text-danger"
-                                        model=".personName"
+                                        model=".oilType"
                                         show="touched"
                                         messages={{
                                             
@@ -147,17 +122,36 @@ class AddService extends Component{
                                 </Col>
                             </Row>
                             <Row className="form-group">
-                                <Label htmlFor="notes" md={2}>Notes</Label>
+                                <Label htmlFor="serial" md={2}>Serial Number</Label>
                                 <Col md={10}>
-                                    <Control.textarea model=".notes" id="notes" name="notes"
-                                        placeholder={this.state.notes}
+                                    <Control.text model=".serial" id="serial" name="serial"
+                                        placeholder={this.state.serial}
                                         className="form-control"
                                         validators={{
                                         }}
                                         />
                                     <Errors
                                         className="text-danger"
-                                        model=".notes"
+                                        model=".serial"
+                                        show="touched"
+                                        messages={{
+                                            
+                                        }}
+                                    />
+                                </Col>
+                            </Row>
+                            <Row className="form-group">
+                                <Label htmlFor="greaseType" md={2}>Grease Type</Label>
+                                <Col md={10}>
+                                    <Control.text model=".greaseType" id="greaseType" name="greaseType"
+                                        placeholder={this.state.greaseType}
+                                        className="form-control"
+                                        validators={{
+                                        }}
+                                        />
+                                    <Errors
+                                        className="text-danger"
+                                        model=".greaseType"
                                         show="touched"
                                         messages={{
                                             
@@ -179,4 +173,4 @@ class AddService extends Component{
 }
 
 
-export default AddService;
+export default AddEquipment;

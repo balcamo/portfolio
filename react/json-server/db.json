@@ -18,7 +18,7 @@
             "locationId":"1",
             "wellHouse":"true",
             "name":"motor",
-            "installDate":"1-2-15",
+            "installDate":"2017-06-01T08:30",
             "horsePower":"250",
             "oilType":"um i don't know",
             "serial":"xxx-111-222",
@@ -51,7 +51,7 @@
             "locationId":"1",
             "wellHouse":"false",
             "name":"filter",
-            "installDate":"1-2-15",
+            "installDate":"2018-06-01T08:30",
             "horsePower":"250",
             "oilType":"um i don't",
             "serial":"xxx-111-222",
@@ -86,8 +86,8 @@
             "locationId":"1",
             "equipmentId":"1",
             "serviceName":"oil change",
-            "serviceDate":"june 20 2018",
-            "nextDate":"july 18 2019",
+            "serviceDate":"2015-06-01T08:30",
+            "nextDate":"2016-06-01T08:30",
             "personName":"Brady",
             "notes":"This is an example"
 
