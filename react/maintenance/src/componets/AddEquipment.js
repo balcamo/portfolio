@@ -1,10 +1,21 @@
 import React, {Component} from 'react';
 import { Control, Errors, LocalForm } from 'react-redux-form';
-
+import { postEquipment } from '../redux/ActionCreators';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, 
      Row, Col, Label   } from 'reactstrap';
 
-
+const mapStateToProps = state => {
+    return {
+    
+}}
+const mapDispatchToProps = dispatch => ({
+    postEquipment: (id,locationId,wellHouse,name,installDate,horsePower,
+        oilType,serial,greaseType) => dispatch(postEquipment(id,
+            locationId,wellHouse,name,installDate,horsePower,
+            oilType,serial,greaseType)),
+});
 class AddEquipment extends Component{
     constructor(props) {
         super(props);
@@ -173,4 +184,4 @@ class AddEquipment extends Component{
 }
 
 
-export default AddEquipment;
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AddEquipment));
