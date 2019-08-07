@@ -3,7 +3,8 @@ import { Navbar } from 'reactstrap';
 import { BrowserRouter,Switch, Route,withRouter } from 'react-router-dom';
 import NavNav from './nav';
 import Home from './Home';
-import Maintenance from './maintenance';
+import WellTabs from './WellTabs';
+import Booster from './Booster';
 
 import { fetchLocations, postService, fetchEquipment, fetchService,postEquipment } from '../redux/ActionCreators';
 import { connect } from 'react-redux';
@@ -34,10 +35,10 @@ class Main extends Component{
         this.props.fetchService();
     }
     render(){
-        const EquipWithId = ({match}) => {
+        const WellWithId = ({match}) => {
             console.log("in equipwithid "+JSON.stringify(this.props.locations.locations));
             return(
-                <Maintenance 
+                <WellTabs 
                     locations={this.props.locations.locations.filter(
                         (location) => parseInt(location.id,10) === parseInt(match.params.id,10))[0]} 
                     isLoading={this.props.locations.isLoading}
@@ -57,6 +58,27 @@ class Main extends Component{
                 
             );
             }
+            const BoosterWithId = ({match}) => {
+                console.log("in boosterwithid "+JSON.stringify(this.props.locations.locations));
+                return(
+                    <Booster 
+                        locations={this.props.locations.locations.filter(
+                            (location) => parseInt(location.id,10) === parseInt(match.params.id,10))[0]} 
+                        isLoading={this.props.locations.isLoading}
+                        errMess={this.props.locations.errMess}
+                        equipment={this.props.equipment.equipment.filter(
+                            (equip) => parseInt(equip.locationId) === parseInt(match.params.id,10))}
+                        equipmentisLoading={this.props.equipment.isLoading}
+                        equipmentErrMess={this.props.equipment.errMess}
+                        addEquipment={this.props.addEquipment}
+                        services={this.props.services.services.filter(
+                            (service) => parseInt(service.locationId) === parseInt(match.params.id,10))}
+                        servicesisLoading={this.props.services.isLoading}
+                        servicesErrMess={this.props.services.errMess}
+                    />
+                    
+                );
+                }
         return(
             <div className="container">
                 <Navbar light>
@@ -64,7 +86,8 @@ class Main extends Component{
                 </Navbar>
                 <BrowserRouter>
                     <Switch>
-                        <Route path="/equip/:id" component={EquipWithId}/>
+                        <Route path="/well/:id" component={WellWithId}/>
+                        <Route path="/booster/:id" component={BoosterWithId}/>
                         <Route path="/" render={Home} />
                     </Switch>
                 </BrowserRouter>

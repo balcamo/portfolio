@@ -10,6 +10,21 @@
             "id":"2",
             "name":"Well House 2",
             "location":"to get from gis"
+        },
+        {
+            "id":"10",
+            "name":"Booster 1",
+            "location":"to get from gis"
+        },
+        {
+            "id":"11",
+            "name":"Booster 2",
+            "location":"to get from gis"
+        },
+        {
+            "id":"15",
+            "name":"Reservoir 1",
+            "location":"to get from gis"
         }
     ],
     "equipment":[
@@ -17,113 +32,42 @@
             "id":"1",
             "locationId":"1",
             "wellHouse":"true",
-            "name":"motor",
-            "installDate":"2017-06-01T08:30",
-            "horsePower":"250",
-            "oilType":"um i don't know",
-            "serial":"xxx-111-222",
-            "greaseType":"same as oil"
+            "name":"Motor",
+            "installDate":"2017-06-01T08:30"
         },
         {
             "id":"2",
             "locationId":"1",
             "wellHouse":"true",
-            "name":"pump",
-            "installDate":"",
-            "horsePower":"",
-            "oilType":"",
-            "serial":"",
-            "greaseType":""
+            "name":"Pump",
+            "installDate":""
         },
         {
-            "id":"3",
-            "locationId":"2",
+            "id":"8",
+            "locationId":"10",
             "wellHouse":"true",
-            "name":"motor",
-            "installDate":"",
-            "horsePower":"",
-            "oilType":"",
-            "serial":"",
-            "greaseType":""
+            "name":"Motor",
+            "installDate":"2018-06-01T08:30"
         },
         {
-            "id":"4",
-            "locationId":"1",
-            "wellHouse":"false",
-            "name":"filter",
-            "installDate":"2018-06-01T08:30",
-            "horsePower":"250",
-            "oilType":"um i don't",
-            "serial":"xxx-111-222",
-            "greaseType":"Chlorinator"
-        },
-        {
-            "id":"5",
-            "locationId":"1",
-            "wellHouse":"false",
-            "name":"pump",
-            "installDate":"",
-            "horsePower":"",
-            "oilType":"",
-            "serial":"",
-            "greaseType":"Chlorinator"
-        },
-        {
-            "id":"6",
-            "locationId":"2",
-            "wellHouse":"false",
-            "name":"Chlorinator",
-            "installDate":"",
-            "horsePower":"",
-            "oilType":"",
-            "serial":"",
-            "greaseType":"Chlorinator"
+            "id":"8",
+            "locationId":"15",
+            "wellHouse":"true",
+            "name":"Preasure Transducers",
+            "installDate":"2018-06-01T08:30"
         }
     ],
-    "services":[
+    "service":[
         {
             "id":"1",
             "locationId":"1",
             "equipmentId":"1",
-            "serviceName":"oil change",
+            "service":"Oil Change",
             "serviceDate":"2015-06-01T08:30",
             "nextDate":"2016-06-01T08:30",
             "personName":"Brady",
             "notes":"This is an example"
 
         }
-    ],
-"wellEquip":[{
-    "motor":[{          
-        "horsePower":"",
-            "oilType":"",
-            "serial":"",
-            "greaseType":""
-            
-        }
-    ],
-    "pump":"",
-    "pumpControlValve":"",
-    "pumpDischargeValve":"",
-    "highPSI":"",
-    "flowMeter":"",
-    "airVacValve":"",
-    "preLubeValve":"",
-    "coolers":"",
-    "psiTransducer":"",
-    "pipingValves":""
-}],
-"clorinatorEquip":[{
-    "cl2Pump":"",
-    "cl2Motor":"",
-    "pipingValves":"",
-    "pumpSielondid":"",
-    "flowMeter":"",
-    "psiGages":"",
-    "checkValves":"",
-    "tankFloat":"",
-    "cl2DepositFilter":"",
-    "fanExhaust":"",
-    "heaterThermostat":""
-}]
+    ]
 }

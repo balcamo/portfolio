@@ -31,6 +31,8 @@ class Service extends Component{
 
     addService(date){
         this.toggle();
+        alert("form submitting");
+
     
         return(
             <AddService equipName={this.state.equipName} equipId={this.state.equipId} locationId={this.state.locationId} previous={date}/>
@@ -39,7 +41,6 @@ class Service extends Component{
     // this.props.postEquipment(this.props.id,this.props.locationId,
     //     this.props.wellHouse,this.state.name, values.installDate, 
     //     values.horsePower, values.oilType, values.serial, values.greaseType);
-    alert("form submitting");
   }
   
   

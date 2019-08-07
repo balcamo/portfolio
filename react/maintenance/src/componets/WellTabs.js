@@ -6,8 +6,9 @@ import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { TabContent, Nav, NavItem, NavLink, TabPane } from 'reactstrap';
 import classnames from 'classnames';
-import Equipment from './Equipment';   
+import WellEquipment from './WellEquipment';   
 import {Loading} from './LoadingComponent'; 
+import AddEquipment from './AddEquipment';
 
 function EquipmentRender(props){
     if (props.isLoading) {
@@ -30,23 +31,27 @@ function EquipmentRender(props){
             </div>
         );
     }
-    else if (props.equip != null) 
+    else if (props.equip.length != 0) 
         return(
-            <Equipment equipment={props.equip}
+            <WellEquipment 
+                locationId={props.locationId}
+                locationName={props.name}
+                equipment={props.equip}
                 services={props.services}
                 postEquipment={props.postEquipment} 
             />
         );
     else
         return(
-            <React.Fragment>
+            <div>
                 <h3>No Equipment Available</h3>
-            </React.Fragment>
+                <AddEquipment locationId={props.locationId} locationName={props.locationName}/>
+            </div>
         );
 
 
 }
-const Maintenance = (props) =>{
+const WellTabs = (props) =>{
     const [activeTab, setTab] = useState(props.tab);
     if (props.isLoading) {
         return(
@@ -143,4 +148,4 @@ const Maintenance = (props) =>{
       
 }
 
-export default Maintenance;
+export default WellTabs;

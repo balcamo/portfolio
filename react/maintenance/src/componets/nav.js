@@ -32,18 +32,18 @@ class NavNav extends Component{
                             <b className="caret"></b>
                         </DropdownToggle>
                         <DropdownMenu>
-                            <DropdownItem href="/equip/1">Well 1</DropdownItem>
-                            <DropdownItem href="/equip/2">Well 2</DropdownItem>
-                            <DropdownItem>Well 3</DropdownItem>
-                            <DropdownItem>Well 4</DropdownItem>
-                            <DropdownItem>Well 5</DropdownItem>
-                            <DropdownItem>well 6</DropdownItem>
-                            <DropdownItem>Well 7</DropdownItem>
-                            <DropdownItem>Well 8</DropdownItem> 
-                            <DropdownItem>Well 9</DropdownItem> 
+                            <DropdownItem href="/well/1">Well 1</DropdownItem>
+                            <DropdownItem href="/well/2">Well 2</DropdownItem>
+                            <DropdownItem href="/well/3">Well 3</DropdownItem>
+                            <DropdownItem href="/well/4">Well 4</DropdownItem>
+                            <DropdownItem href="/well/5">Well 5</DropdownItem>
+                            <DropdownItem href="/well/6">well 6</DropdownItem>
+                            <DropdownItem href="/well/7">Well 7</DropdownItem>
+                            <DropdownItem href="/well/8">Well 8</DropdownItem> 
+                            <DropdownItem href="/well/9">Well 9</DropdownItem> 
                             <DropdownItem divider />
-                            <DropdownItem>Booster 1</DropdownItem>
-                            <DropdownItem>Booster 2</DropdownItem>
+                            <DropdownItem href="/booster/10">Booster 1</DropdownItem>
+                            <DropdownItem href="/booster/11">Booster 2</DropdownItem>
                             <DropdownItem>Booster 3</DropdownItem>
                             <DropdownItem>Booster 4</DropdownItem>
                             <DropdownItem>Booster 5</DropdownItem>
