@@ -4,7 +4,7 @@ import { Button, Card, CardBody, CardHeader, Table,
 import { Control, Errors, LocalForm } from 'react-redux-form';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Service from './Services';
+import Service from './WellServices';
 import AddService from './AddService';
 import AddEquipment from './AddEquipment';
 import { postEquipment } from '../redux/ActionCreators';
@@ -111,82 +111,6 @@ class RenderPropertiesList extends Component{
                                                 />
                                             </Col>
                                         </Row>
-                                        <Row className="form-group">
-                                            <Label htmlFor="horsePower" md={2}>Horse Power</Label>
-                                            <Col md={10}>
-                                                <Control.text model=".horsePower" id="horsePower" name="horsePower"
-                                                    placeholder={this.state.horsePower}
-                                                    className="form-control"
-                                                    validators={{
-                                                    }}
-                                                    />
-                                                <Errors
-                                                    className="text-danger"
-                                                    model=".horsePower"
-                                                    show="touched"
-                                                    messages={{
-                                                        
-                                                    }}
-                                                />
-                                            </Col>
-                                        </Row>
-                                        <Row className="form-group">
-                                            <Label htmlFor="oilType" md={2}>Oil Type</Label>
-                                            <Col md={10}>
-                                                <Control.text model=".oilType" id="oilType" name="oilType"
-                                                    placeholder={this.state.oilType}
-                                                    className="form-control"
-                                                    validators={{
-                                                    }}
-                                                    />
-                                                <Errors
-                                                    className="text-danger"
-                                                    model=".oilType"
-                                                    show="touched"
-                                                    messages={{
-                                                        
-                                                    }}
-                                                />
-                                            </Col>
-                                        </Row>
-                                        <Row className="form-group">
-                                            <Label htmlFor="serial" md={2}>Serial Number</Label>
-                                            <Col md={10}>
-                                                <Control.text model=".serial" id="serial" name="serial"
-                                                    placeholder={this.state.serial}
-                                                    className="form-control"
-                                                    validators={{
-                                                    }}
-                                                    />
-                                                <Errors
-                                                    className="text-danger"
-                                                    model=".serial"
-                                                    show="touched"
-                                                    messages={{
-                                                        
-                                                    }}
-                                                />
-                                            </Col>
-                                        </Row>
-                                        <Row className="form-group">
-                                            <Label htmlFor="greaseType" md={2}>Grease Type</Label>
-                                            <Col md={10}>
-                                                <Control.text model=".greaseType" id="greaseType" name="greaseType"
-                                                    placeholder={this.state.greaseType}
-                                                    className="form-control"
-                                                    validators={{
-                                                    }}
-                                                    />
-                                                <Errors
-                                                    className="text-danger"
-                                                    model=".greaseType"
-                                                    show="touched"
-                                                    messages={{
-                                                        
-                                                    }}
-                                                />
-                                            </Col>
-                                        </Row>
                                     </LocalForm>
                                 </ModalBody>
                                 <ModalFooter>
@@ -197,10 +121,6 @@ class RenderPropertiesList extends Component{
                         </div>
                         <div className="row equipInfo"> 
                             <p><b>Install Date</b>: {this.state.installDate}&nbsp;</p> 
-                            <p><b>Horse Power</b>: {this.state.horsePower}&nbsp;</p> 
-                            <p><b>Oil Type</b>: {this.state.oilType}&nbsp;</p> 
-                            <p><b>Serial Number</b>: {this.state.serial}&nbsp;</p> 
-                            <p><b>Grease Type</b>: {this.state.greaseType}&nbsp;</p> 
                         </div>
                     </CardHeader>
                 </React.Fragment>
@@ -211,7 +131,7 @@ class RenderPropertiesList extends Component{
     }
 }
 
-function Equipment(props){
+function WellEquipment(props){
     const listofEquip = props.equipment.map((equip) => {
         const services = props.services.filter(
             (service) => parseInt(service.equipmentId) === parseInt(equip.id,10)); 
@@ -258,4 +178,4 @@ function Equipment(props){
         return(<div></div>);
 } 
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Equipment));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(WellEquipment));

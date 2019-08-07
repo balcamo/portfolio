@@ -122,7 +122,7 @@ export const fetchService = () => (dispatch) => {
     
     dispatch(serviceLoading());
 
-    return fetch(baseUrl + 'services')
+    return fetch(baseUrl + 'service')
     .then(response => {
         if (response.ok) {
           return response;
