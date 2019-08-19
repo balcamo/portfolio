@@ -4,7 +4,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter,
     ListGroup, ListGroupItem } from 'reactstrap';
 
 import AddService from './AddService';
-
+import Loading from './LoadingComponent';
 
 class Service extends Component{
 
@@ -45,6 +45,27 @@ class Service extends Component{
   
   
     render(){
+        if (props.servicesLoading) {
+            return(
+                <div className="container">
+                    <div className="row">            
+                        <Loading />
+                    </div>
+                </div>
+            );
+        }
+        else if (props.servicesErrMess) {
+            return(
+                <div className="container">
+                    <div className="row"> 
+                        <div className="col-12">
+                            <h4>{props.servicesErrMess}</h4>
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+        else
         const services = this.state.services.map((service)=>{
             return(
                 <React.Fragment key={service.id}>

@@ -1,11 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { Accordion } from 'react-light-accordion';
 import 'react-light-accordion/demo/css/index.css';
 
 import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import { TabContent, Nav, NavItem, NavLink, TabPane } from 'reactstrap';
-import classnames from 'classnames';
 import WellEquipment from './WellEquipment';   
 import {Loading} from './LoadingComponent'; 
 
@@ -34,7 +32,9 @@ function EquipmentRender(props){
         return(
             <WellEquipment equipment={props.equip}
                 services={props.services}
-                postEquipment={props.postEquipment} 
+                postEquipment={props.postEquipment}
+                servicesLoading={props.servicesisLoading}
+                servicesErrMess={props.servicesErrMess} 
             />
         );
     else
@@ -47,7 +47,6 @@ function EquipmentRender(props){
 
 }
 const Booster = (props) =>{
-    const [activeTab, setTab] = useState(props.tab);
     if (props.isLoading) {
         return(
             <div className="container">
@@ -96,7 +95,6 @@ const Booster = (props) =>{
                         servicesLoading={props.servicesisLoading}
                         servicesErrMess={props.servicesErrMess}
                         postEquipment={props.postEquipment}
-
                     />
                 </Accordion>
                     

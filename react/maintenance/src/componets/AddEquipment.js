@@ -11,10 +11,8 @@ const mapStateToProps = state => {
     
 }}
 const mapDispatchToProps = dispatch => ({
-    postEquipment: (id,locationId,wellHouse,name,installDate,horsePower,
-        oilType,serial,greaseType) => dispatch(postEquipment(id,
-            locationId,wellHouse,name,installDate,horsePower,
-            oilType,serial,greaseType)),
+	postEquipment: (id,locationId,wellHouse,name,installDate) 
+		=> dispatch(postEquipment(id,locationId,wellHouse,name,installDate)),
 });
 class AddEquipment extends Component{
     constructor(props) {
@@ -22,18 +20,9 @@ class AddEquipment extends Component{
         this.state = {
             name:'',
             installDate:'',
-            horsePower:'',
-            oilType:'',
-            serial:'',
-            greaseType:'',
             modal: false,
             touched: {
-                installDate: false,
-                installDate: false,
-                horsePower: false,
-                oilType: false,
-                serial: false,
-                greaseType: false
+                installDate: false
             }
         };
     
@@ -87,82 +76,6 @@ class AddEquipment extends Component{
                                     <Errors
                                         className="text-danger"
                                         model=".installDate"
-                                        show="touched"
-                                        messages={{
-                                            
-                                        }}
-                                    />
-                                </Col>
-                            </Row>
-                            <Row className="form-group">
-                                <Label htmlFor="horsePower" md={2}>Horse Power</Label>
-                                <Col md={10}>
-                                    <Control.text model=".horsePower" id="horsePower" name="horsePower"
-                                        placeholder={this.state.horsePower}
-                                        className="form-control"
-                                        validators={{
-                                        }}
-                                        />
-                                    <Errors
-                                        className="text-danger"
-                                        model=".horsePower"
-                                        show="touched"
-                                        messages={{
-                                            
-                                        }}
-                                    />
-                                </Col>
-                            </Row>
-                            <Row className="form-group">
-                                <Label htmlFor="oilType" md={2}>Oil Type</Label>
-                                <Col md={10}>
-                                    <Control.text model=".oilType" id="oilType" name="oilType"
-                                        placeholder={this.state.oilType}
-                                        className="form-control"
-                                        validators={{
-                                        }}
-                                        />
-                                    <Errors
-                                        className="text-danger"
-                                        model=".oilType"
-                                        show="touched"
-                                        messages={{
-                                            
-                                        }}
-                                    />
-                                </Col>
-                            </Row>
-                            <Row className="form-group">
-                                <Label htmlFor="serial" md={2}>Serial Number</Label>
-                                <Col md={10}>
-                                    <Control.text model=".serial" id="serial" name="serial"
-                                        placeholder={this.state.serial}
-                                        className="form-control"
-                                        validators={{
-                                        }}
-                                        />
-                                    <Errors
-                                        className="text-danger"
-                                        model=".serial"
-                                        show="touched"
-                                        messages={{
-                                            
-                                        }}
-                                    />
-                                </Col>
-                            </Row>
-                            <Row className="form-group">
-                                <Label htmlFor="greaseType" md={2}>Grease Type</Label>
-                                <Col md={10}>
-                                    <Control.text model=".greaseType" id="greaseType" name="greaseType"
-                                        placeholder={this.state.greaseType}
-                                        className="form-control"
-                                        validators={{
-                                        }}
-                                        />
-                                    <Errors
-                                        className="text-danger"
-                                        model=".greaseType"
                                         show="touched"
                                         messages={{
                                             

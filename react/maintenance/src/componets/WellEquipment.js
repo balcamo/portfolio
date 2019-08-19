@@ -32,18 +32,9 @@ class RenderPropertiesList extends Component{
         this.state = {
             name:props.properties.name,
             installDate:props.properties.installDate,
-            horsePower:props.properties.horsePower,
-            oilType:props.properties.oilType,
-            serial:props.properties.serial,
-            greaseType:props.properties.greaseType,
             modal: false,
             touched: {
-                installDate: false,
-                installDate: false,
-                horsePower: false,
-                oilType: false,
-                serial: false,
-                greaseType: false
+                installDate: false
             }
         };
     
@@ -153,7 +144,13 @@ function WellEquipment(props){
                                     </tr>
                                 </thead>
                                 {/* same as prperties for each tr */} 
-                                <Service equipName={equip.name} services={services} equipId={equip.id} locationId={equip.locationId}/>
+                                <Service equipName={equip.name} 
+                                        services={services} 
+                                        equipId={equip.id} 
+                                        locationId={equip.locationId}
+                                        servicesLoading={props.servicesisLoading}
+                                        servicesErrMess={props.servicesErrMess}
+                                    />
                             </Table>
                             
                             <AddService equipName={equip.name} equipId={equip.id} locationId={equip.locationId} serviceName={''} />
